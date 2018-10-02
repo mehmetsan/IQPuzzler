@@ -1,1 +1,3 @@
-# project
+# IQ Puzzler
+
+IQ Puzzler Pro is a single player puzzle game consisting of 12 puzzle pieces in the form of plastic beads molded together into different shapes. The goal of each level is to fit each of the puzzle pieces together onto a 5x12 grid to create a solid rectangle or to stack them on top of each other to create a pyramid, for a 3D element. The easier levels will give the player a diagram with all of the puzzle pieces placed where they belong except for two pieces, and the player must fit them into the empty spaces. The more difficult levels will only have one or two pieces placed in the diagram and the player must decide where the rest should go. Furthermore, the game can be played as a three dimensional pyramid where the player must instead stack the puzzle pieces on the grid to form a pyramid.
