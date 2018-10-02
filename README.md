@@ -1,1 +1,1 @@
-# project
+# Regular documentation and coding activities
