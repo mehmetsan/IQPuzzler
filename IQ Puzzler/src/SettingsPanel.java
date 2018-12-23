@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import javax.swing.SwingConstants;
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -52,7 +54,7 @@ public class SettingsPanel extends JPanel {
 		sounds.setPaintTicks(true);
 		sounds.setBounds(100, 105, 200, 20);
 		sounds.setSize(300, 90);
-		sounds.setBackground(Color.ORANGE);
+		sounds.setBackground(new Color(8,178 ,227));
 		add(sounds);
 		
 		JLabel label2 = new JLabel("Sound: ");
@@ -60,14 +62,14 @@ public class SettingsPanel extends JPanel {
 		label2.setFont(new Font("Tahoma", Font.BOLD, 25 ));
 		label2.setBounds(20, 100, 100, 25);
 		label2.setForeground(Color.ORANGE);
-		label2.setBackground(Color.ORANGE);
+		label2.setBackground(new Color(8,178 ,227));
 		add(label2);
 		
 	    JRadioButton button1 = new JRadioButton("OFF");
 	    button1.setActionCommand("OFF");
 	    button1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	    button1.setForeground(Color.ORANGE);
-	    button1.setBackground(Color.ORANGE);
+	    button1.setBackground(new Color(8,178 ,227));
 	   /* if(fm.readSettingsFile(0) == "false")
 		    button1.setSelected(true);
 	    else
@@ -89,7 +91,7 @@ public class SettingsPanel extends JPanel {
 	    //button2.setMnemonic(KeyEvent.VK_C);
 	    button2.setActionCommand("ON");
 	    button2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    button2.setBackground(Color.ORANGE);
+	    button2.setBackground(new Color(8,178 ,227));
 	    button2.setSelected(true);
 	    button2.setForeground(Color.ORANGE);
 	    /*if(fm.readSettingsFile(0) == "true")
@@ -161,6 +163,16 @@ public class SettingsPanel extends JPanel {
 		
 		
 	}
+	
+	public void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		ImageIcon img;
+		img = new ImageIcon("background.jpg");
+		img.paintIcon(null, g, 0, 0);
+	}
+	
+	
 	public class backListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 	       
