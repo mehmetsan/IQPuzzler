@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -31,6 +32,7 @@ public class GameManager extends JPanel {
 	private int [] preY = new int[5];
 	private boolean finish = false;
 	private boolean pressOut = false;
+	private boolean showSol = false;
 	private int dummy=100;
 	private int locations[][];
 	private Box trueBoxes[];
@@ -42,9 +44,11 @@ public class GameManager extends JPanel {
 	private JLabel time2Label;
 	private JLabel time3Label;
 	private JLabel legend;
+	private JLabel solution; 
 	private int moveCount[];
 	private int playable[];
 	private JButton back;
+	private JButton sol;
 	private JButton finTour;
 	private int level;
 	private int mode;
@@ -75,7 +79,13 @@ public class GameManager extends JPanel {
 		occupied = grid.getOccupied();
 		boxes = grid.getBoxes();
 		moveCount = new int[21];
-
+		ImageIcon img = new ImageIcon("solutions/"+lvl+ ".png");
+		
+		solution = new JLabel("sad");
+		solution.setIcon(img);
+		solution.setBounds(1000, 400, 200, 30);
+		solution.setVisible(showSol);
+		this.add(solution);
 
 		for(int i= 0; i < 20; i++) {
 			playable[i] = Integer.parseInt(fm.readLevelFile(i));
@@ -125,6 +135,14 @@ public class GameManager extends JPanel {
 		back.setFont(new Font("Tahoma", Font.BOLD, 25));
 		back.addActionListener(new backListener());
 		add(back);
+		
+		sol = new JButton("Solution");
+		sol.setBackground(new Color(59, 89, 182));
+		sol.setForeground(Color.WHITE);
+		sol.setFocusPainted(false);
+		sol.setFont(new Font("Tahoma", Font.BOLD, 25));
+		sol.addActionListener(new solListener());
+		add(sol);
 
 
 
@@ -226,6 +244,9 @@ public class GameManager extends JPanel {
 		label.setText("Move Count = " + moveCount[level]);
 		label.setBounds(10, 650, 10000, 30);
 		back.setBounds(20, 500, 100, 30);
+		sol.setBounds(650, 750, 200, 30);
+		solution.setBounds(510, 460, 600, 300);
+		solution.setVisible(showSol);
 
 		if(mode == 0) {
 			time0Label.setBounds(1400, 650, 120, 120);
@@ -463,7 +484,8 @@ public class GameManager extends JPanel {
 
 				fm.deleteLevelAll();
 
-				playable[level] = 1;
+				if(level != 20)
+					playable[level] = 1;
 
 				for(int i = 0; i< 20; i++) {
 					fm.writeLevelFile(String.valueOf(playable[i]));
@@ -503,7 +525,7 @@ public class GameManager extends JPanel {
 						time3.stop();
 
 						int totTime = Integer.parseInt(totalTime2);
-						totTime = totTime + (60 - Integer.parseInt(time3Label.getText()));
+						totTime = totTime + (7*level - Integer.parseInt(time3Label.getText()));
 						totalTime2 = String.valueOf(totTime);
 
 						int totMove = Integer.parseInt(totalMove2);
@@ -618,6 +640,22 @@ public class GameManager extends JPanel {
 		}	
 
 	}
+	
+	public class solListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			if(!showSol) {
+				solution.setVisible(true);
+				showSol = true;
+			}
+			
+			else {
+				solution.setVisible(false);
+				showSol = false;
+			}
+			
+		}	
+
+	}
 
 	public class finListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -716,8 +754,6 @@ public class GameManager extends JPanel {
 						options,
 						options[1]);
 
-
-
 				if(selectedValue == 0 ) {
 					setVisible(false);
 					GameManager d = new GameManager(menu, level , mode );
@@ -729,12 +765,8 @@ public class GameManager extends JPanel {
 					menu.show(d);
 
 				}
-
 			}
-
-
 		}
-
 	}
 
 	public class time3Listener implements ActionListener{
@@ -774,8 +806,9 @@ public class GameManager extends JPanel {
 
 				}
 
+	
 				int totTime = Integer.parseInt(totalTime2);
-				totTime = totTime + (60 - Integer.parseInt(time3Label.getText()));
+				totTime = totTime + ((7*level));
 				totalTime2 = String.valueOf(totTime);
 
 				int totMove = Integer.parseInt(totalMove2);
