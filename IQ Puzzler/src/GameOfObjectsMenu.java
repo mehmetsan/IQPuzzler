@@ -12,10 +12,22 @@ import java.lang.*;
 
 public class GameOfObjectsMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
+	FileManager fm = new FileManager();
+	 File yourFile = new File("8-punk-8-bit-music.wav");
+	    AudioInputStream stream;
+	    AudioFormat format;
+	    DataLine.Info info;
+	  Clip clip;
+	     
+	    
 	private MainPanel main;
-	public GameOfObjectsMenu() {
+	public GameOfObjectsMenu() throws LineUnavailableException, UnsupportedAudioFileException, IOException, InterruptedException {
 		
+		stream = AudioSystem.getAudioInputStream(yourFile);
+	    format = stream.getFormat();
+	    info = new DataLine.Info(Clip.class, format);
+	    clip = (Clip) AudioSystem.getLine(info);
+	    clip.open(stream);
 	    
 		main = new MainPanel(this);
 		setName("GameOfObjects");		
@@ -29,12 +41,35 @@ public class GameOfObjectsMenu extends JFrame {
 		setVisible(true);
 		setTitle("IQ Puzzler");
 		add(main);
+		musicBegin();
 	}
       public void show(JPanel panel){
         	getContentPane().removeAll();
         	add(panel);
         }
-      
+       public void music() throws LineUnavailableException, IOException, InterruptedException
+   {
+  	 
+   	    
+   	 if(fm.readSettingsFile(0).equals("true"))
+   	 {
+   	    clip.start();
+   	    clip.loop(Clip.LOOP_CONTINUOUSLY);
+         Thread.sleep(1000); // looping as long as this thread is alive
+   	    
+   	}
+   }
+   	 public void musicBegin() throws LineUnavailableException, IOException, InterruptedException
+     {
+   		   clip.start();
+     	   clip.loop(Clip.LOOP_CONTINUOUSLY);
+           //Thread.sleep(10000); // looping as long as this thread is alive	 
+   	
+   }
+   public void closeMusic()
+   {
+	   		 clip.stop();
+   }
     
 
 	public class exitListener implements ActionListener{
@@ -44,7 +79,7 @@ public class GameOfObjectsMenu extends JFrame {
 
 	}
         
-	public static void main(String[] args) {
+	public static void main(String[] args)  throws LineUnavailableException, UnsupportedAudioFileException, IOException, InterruptedException{
 		new GameOfObjectsMenu();
 	}
 }
