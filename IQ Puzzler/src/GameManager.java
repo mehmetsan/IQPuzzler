@@ -219,6 +219,12 @@ public class GameManager extends JPanel {
 			time3 = new Timer(1000 , new time3Listener());
 			time3.start();
 
+			timeLabel = new JLabel("TIME = ");
+			timeLabel.setForeground(Color.white);
+			timeLabel.setFont(new Font("Serif", Font.ROMAN_BASELINE, 30));
+			timeLabel.setBounds(1300, 650, 120, 120);
+			this.add(timeLabel);
+			
 			time3Label = new JLabel(String.valueOf(7*level));
 			time3Label.setForeground(Color.white);
 			time3Label.setFont(new Font("Serif", Font.BOLD, 30));
@@ -299,7 +305,7 @@ public class GameManager extends JPanel {
 
 		if(mode == 3) {
 			time3Label.setBounds(1400, 650, 120, 120);
-
+			timeLabel.setBounds(1300, 650, 120, 120);
 		}
 
 		Graphics2D g2d = (Graphics2D) g;

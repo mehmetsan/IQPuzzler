@@ -34,7 +34,7 @@ public class HowToPlayPanel extends JPanel {
 
 		JButton back = new JButton("Back");
 		//btnNewButton.setHorizontalAlignment(SwingConstants.CENTER);
-		back.setBounds(20, 500, 200, 60);
+		back.setBounds(120, 780, 200, 60);
 		back.setBackground(new Color(59, 89, 182));
 		back.setForeground(Color.WHITE);
 		back.setFocusPainted(false);
@@ -42,14 +42,21 @@ public class HowToPlayPanel extends JPanel {
 		back.addActionListener(new backListener());
 		add(back);
 
-		JLabel label2 = new JLabel("<html><p>"+ "\t" +"Choose a challenge. Place the puzzle pieces as indicated. "
+		JLabel label2 = new JLabel("<html><p>"+ "\t" +"Select a mode. Then ,choose a challenge."
+				+ "You can choose singleplayer and multiplayer mode.Select casual or time bomb mode."
+				+"In casual mode game is simple."
+				+ " Place the puzzle pieces as indicated. "
 				+ "You are not allowed to change the position of the pieces given in the challenge."
 				+ "Try to fill the empty spaces with all the remaining puzzle pieces."
-				+ "There is only one solution per challenge(after level 3). Have fun!<html><p>");
+				+ "TimeBomb mode is similar to the casual mode. But this time you have to beat before time ends."
+				+"In the multiplayer mode, you can play with your friend and each player have their own time. Play swift!"
+				+ "There is only one solution per challenge(after level 3). "
+				+ "You can show solution if you stuck."
+				+ "Have fun!<html><p>");
 		//label2.setHorizontalAlignment(SwingConstants.CENTER);
 		label2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		label2.setForeground(Color.ORANGE);
-		label2.setBounds(20, 100, 550, 330);
+		label2.setBounds(20, 80, 550, 730);
 		add(label2);
 
 
