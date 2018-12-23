@@ -562,7 +562,7 @@ public class GameManager extends JPanel {
 					}
 
 					selectedValue = JOptionPane.showOptionDialog(null,
-							"YOU WON BRUH",
+							"YOU WON!! CONGRATS!!",
 							"LEVEL COMPLETED",
 							JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE,
@@ -802,7 +802,7 @@ public class GameManager extends JPanel {
 				"Level Select"};
 
 				selectedValue = JOptionPane.showOptionDialog(null,
-						"YOU LOST BRUH!!",
+						"YOU LOST!! TRY AGAIN!!",
 						"LEVEL FAILED!!",
 						JOptionPane.YES_NO_CANCEL_OPTION,
 						JOptionPane.QUESTION_MESSAGE,

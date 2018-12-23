@@ -54,7 +54,9 @@ public class SettingsPanel extends JPanel {
 		sounds.setPaintTicks(true);
 		sounds.setBounds(100, 105, 200, 20);
 		sounds.setSize(300, 90);
-		sounds.setBackground(new Color(8,178 ,227));
+		sounds.setOpaque(false);
+	//	sounds.setContentAreaFilled(false);
+	//	sounds.setBorderPainted(false);
 		add(sounds);
 		
 		JLabel label2 = new JLabel("Sound: ");
@@ -69,12 +71,9 @@ public class SettingsPanel extends JPanel {
 	    button1.setActionCommand("OFF");
 	    button1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	    button1.setForeground(Color.ORANGE);
-	    button1.setBackground(new Color(8,178 ,227));
-	   /* if(fm.readSettingsFile(0) == "false")
-		    button1.setSelected(true);
-	    else
-	    	 button1.setSelected(false);
-	    	 */
+	    button1.setOpaque(false);
+	    button1.setContentAreaFilled(false);
+	    button1.setBorderPainted(false);
 	    button1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 		       
@@ -91,13 +90,12 @@ public class SettingsPanel extends JPanel {
 	    //button2.setMnemonic(KeyEvent.VK_C);
 	    button2.setActionCommand("ON");
 	    button2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    button2.setBackground(new Color(8,178 ,227));
+	    button2.setOpaque(false);
+	    button2.setContentAreaFilled(false);
+	    button2.setBorderPainted(false);
 	    button2.setSelected(true);
 	    button2.setForeground(Color.ORANGE);
-	    /*if(fm.readSettingsFile(0) == "true")
-	    button2.setSelected(true);
-	    else
-	   	button2.setSelected(false);	*/
+	   
 	    button2.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e) {
 	       
