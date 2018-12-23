@@ -50,6 +50,7 @@ public class GameManager extends JPanel {
 	private int mode;
 	private Color color[];
 	private boolean player1;
+	private boolean gameOn;
 	private  boolean occupied[][];
 	private Box [][] boxes;
 	private int turn;
@@ -67,6 +68,7 @@ public class GameManager extends JPanel {
 
 
 	public GameManager(GameOfObjectsMenu x, int lvl , int mode) {
+		gameOn = true;
 		fm = new FileManager();
 		playable = new int[20];
 		locations = col.getLocations();
@@ -243,14 +245,14 @@ public class GameManager extends JPanel {
 			else
 				player1 = false;
 
-			if(player1) {
+			if(player1 && gameOn) {
 				time.start();
 				time2.stop();
 				label2.setForeground(color[4]);
 				label3.setForeground(Color.white);
 			}
 
-			else {
+			else if(gameOn) {
 				time2.start();
 				time.stop();
 				label3.setForeground(color[4]);
@@ -446,6 +448,19 @@ public class GameManager extends JPanel {
 
 			int selectedValue = 0;
 			if(grid.isFinished()) {
+				
+				gameOn = false;
+				if(mode == 0)
+					time0.stop();
+				
+				if(mode == 3)
+					time3.stop();
+				
+				if(mode == 1) {
+					time2.stop();
+					time.stop();
+					System.out.println("akjasdjl");
+				}
 
 				fm.deleteLevelAll();
 
@@ -587,15 +602,19 @@ public class GameManager extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			setVisible(false);
 			levelPanel l = new levelPanel(menu);
+			
+			menu.show(l);
 			if(mode == 3)
 				time3.stop();
-			menu.show(l);
 			
+
+			if(mode == 0)
+				time0.stop();
 			
-			time.stop();
-			time0.stop();
-			time2.stop();
-			time3.stop();
+			if(mode == 1) {
+				time2.stop();
+				time.stop();
+			}
 
 		}	
 
