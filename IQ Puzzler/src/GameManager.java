@@ -459,7 +459,6 @@ public class GameManager extends JPanel {
 				if(mode == 1) {
 					time2.stop();
 					time.stop();
-					System.out.println("akjasdjl");
 				}
 
 				fm.deleteLevelAll();
