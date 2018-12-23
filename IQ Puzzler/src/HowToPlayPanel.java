@@ -13,6 +13,8 @@ import javax.swing.JButton;
 
 public class HowToPlayPanel extends JPanel {
 	private GameOfObjectsMenu menu;
+	private JLabel image;
+	private JLabel image2;
 	/**
 	 * 
 	 */
@@ -58,6 +60,24 @@ public class HowToPlayPanel extends JPanel {
 		label2.setForeground(Color.ORANGE);
 		label2.setBounds(20, 80, 550, 730);
 		add(label2);
+		
+		ImageIcon img = new ImageIcon("how1.jpeg");
+		
+		image = new JLabel("sad");
+		image.setIcon(img);
+		image.setBounds(800, 480, 480, 480);
+
+		
+		
+		
+	ImageIcon img2 = new ImageIcon("how2.png");
+		
+		image2 = new JLabel("sad");
+		image2.setIcon(img2);
+		image2.setBounds(800, 0, 480, 480);
+
+		this.add(image2);
+		this.add(image);
 
 
 	}
