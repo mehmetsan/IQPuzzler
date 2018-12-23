@@ -154,7 +154,7 @@ public class GameManager extends JPanel {
 
 			time2 = new Timer(1000 , new time2Listener());
 
-			label2 = new JLabel("ANAN");
+			label2 = new JLabel("PLAYER1");
 			label2.setForeground(Color.green);
 			label2.setFont(new Font("Serif", Font.PLAIN, 30));
 			label2.setBounds(320, 400, 10000, 30);
@@ -522,7 +522,7 @@ public class GameManager extends JPanel {
 				else if(player1){
 					selectedValue = JOptionPane.showOptionDialog(null,
 							"ANALAR KAZANDI",
-							"ANAN BABANI S›KT›!",
+							"ANAN BABANI S√ùKT√ù!",
 							JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE,
 							null,
@@ -533,7 +533,7 @@ public class GameManager extends JPanel {
 				else {
 					selectedValue = JOptionPane.showOptionDialog(null,
 							"BABALAR KAZANDI",
-							"BABAN ANANI S›KT›!",
+							"BABAN ANANI S√ùKT√ù!",
 							JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE,
 							null,
@@ -641,7 +641,7 @@ public class GameManager extends JPanel {
 
 				int selectedValue = JOptionPane.showOptionDialog(null,
 						"BABALAR KAZANDI",
-						"BABAN ANANI S›KT›!",
+						"BABAN ANANI S√ùKT√ù!",
 						JOptionPane.YES_NO_CANCEL_OPTION,
 						JOptionPane.QUESTION_MESSAGE,
 						null,
@@ -686,7 +686,7 @@ public class GameManager extends JPanel {
 
 				int selectedValue = JOptionPane.showOptionDialog(null,
 						"ANALAR KAZANDI",
-						"ANAN BABANI S›KT›!",
+						"ANAN BABANI S√ùKT√ù!",
 						JOptionPane.YES_NO_CANCEL_OPTION,
 						JOptionPane.QUESTION_MESSAGE,
 						null,
