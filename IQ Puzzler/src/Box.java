@@ -1,3 +1,13 @@
+/*
+* IQ Puzzler Term Project
+* CS319  Section:2
+* This project was developed for Object Oriented Programming Course Term Project by
+* -Arda Türkoğlu
+* -Engin Deniz Kopan
+* -Zafer Çınar
+* -Mehmet Selim Özcan
+* -Mehmet Sanisoğlu
+*/
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
