@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +35,7 @@ public class MainPanel extends JPanel {
 		JLabel label = new JLabel("IQ PUZZLER PRO");
 		//label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Tahoma", Font.BOLD, 100));
-		label.setForeground(Color.black);
+		label.setForeground(Color.orange);
 		label.setBounds(200, 500, 239, 31);
 		add(label);
 
@@ -91,6 +92,15 @@ public class MainPanel extends JPanel {
 
 
 	}
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		ImageIcon img;
+		img = new ImageIcon("background.jpg");
+		img.paintIcon(null, g, 0, 0);
+	}
+	
 	public class exitListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			System.exit((0));
@@ -141,3 +151,4 @@ public class MainPanel extends JPanel {
 
 	}
 }
+
