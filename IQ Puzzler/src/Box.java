@@ -15,4 +15,4 @@ public class Box extends Rectangle {
 		setBounds(0, 0, 40, 40);
 		setLocation(x , y);	
 	}
-}//asdasdas
+}
