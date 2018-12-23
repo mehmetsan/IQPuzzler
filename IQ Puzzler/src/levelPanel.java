@@ -7,6 +7,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
@@ -44,6 +46,7 @@ public class levelPanel extends JPanel {
 		JLabel label = new JLabel("Select Level");
 		//label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Comic Sans MS", Font.BOLD, 45));
+		label.setForeground(Color.red);
 		label.setBounds(640, 25, 600, 45);
 		add(label);
 
@@ -52,7 +55,10 @@ public class levelPanel extends JPanel {
 		single.setName("single");
 		single.setBounds(600,150 , 200 , 60);
 		single.setSelected(true);
-		single.setBackground(new Color(8,178 ,227));
+		single.setOpaque(false);
+		single.setContentAreaFilled(false);
+		single.setBorderPainted(false);
+		single.setForeground(Color.red);
 		single.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(single);
 
@@ -60,7 +66,10 @@ public class levelPanel extends JPanel {
 		multi.addActionListener(new modeListener());
 		multi.setName("multi");
 		multi.setBounds(800, 150 , 200 , 60);
-		multi.setBackground(new Color(8,178 ,227));
+		multi.setOpaque(false);
+		multi.setContentAreaFilled(false);
+		multi.setBorderPainted(false);
+		multi.setForeground(Color.red);
 		multi.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(multi);
 		
@@ -69,7 +78,10 @@ public class levelPanel extends JPanel {
 		casual.setName("casual");
 		casual.setBounds(600, 250 , 100 , 30);
 		casual.setSelected(true);
-		casual.setBackground(new Color(8,178 ,227));
+		casual.setOpaque(false);
+		casual.setContentAreaFilled(false);
+		casual.setBorderPainted(false);
+		casual.setForeground(Color.red);
 		casual.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(casual);
 		
@@ -78,7 +90,10 @@ public class levelPanel extends JPanel {
 		timeBomb.addActionListener(new modeListener());
 		timeBomb.setName("timeBomb");
 		timeBomb.setBounds(800, 250 , 150 , 30);
-		timeBomb.setBackground(new Color(8,178 ,227));
+		timeBomb.setOpaque(false);
+		timeBomb.setContentAreaFilled(false);
+		timeBomb.setBorderPainted(false);
+		timeBomb.setForeground(Color.red);
 		timeBomb.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(timeBomb);
 		
@@ -256,6 +271,15 @@ public class levelPanel extends JPanel {
 		
 
 	}
+	
+public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		ImageIcon img;
+		img = new ImageIcon("background.jpg");
+		img.paintIcon(null, g, 0, 0);
+	}
+
 	public class backListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			setVisible(false);

@@ -95,7 +95,7 @@ public class GameManager extends JPanel {
 		level = lvl;
 		menu = x;
 		this.mode = mode;
-		setBackground(Color.black);
+		//setBackground(Color.black);
 		col.setLevel(level);
 		grid.setLevel(level);
 		shapes = col.getShapes();
@@ -118,9 +118,12 @@ public class GameManager extends JPanel {
 
 
 		legend = new JLabel("<html>Left-Click: Drag/ Put Shape Back <br>Right-Click  :Rotate Shape<br>Middle-Click :Take Symmetry of Shape");
+		if(mode == 1) {
+			legend = new JLabel("<html>Left-Click: Drag/ Put Shape Back <br>Right-Click  :Rotate Shape<br>Middle-Click :Take Symmetry of Shape<br>Each Player Has 2 Moves<br>Taking Out Shape   :-4 Time Penalty");
+		}
 		legend.setForeground(Color.white);
-		legend.setFont(new Font("Serif", Font.PLAIN, 20));
-		legend.setBounds(10, 690, 10000, 90);
+		legend.setFont(new Font("Serif", Font.BOLD, 23));
+		legend.setBounds(10, 690, 10000, 120);
 		this.add(legend);
 
 		addMouseMotionListener(new MyMouseAdapter());
@@ -148,7 +151,7 @@ public class GameManager extends JPanel {
 
 		label = new JLabel("Move Count = " + moveCount[level]);
 		label.setForeground(Color.white);
-		label.setFont(new Font("Serif", Font.PLAIN, 14));
+		label.setFont(new Font("Serif", Font.BOLD, 25));
 		label.setBounds(10, 700, 200, 30);
 		this.add(label);
 
@@ -175,14 +178,14 @@ public class GameManager extends JPanel {
 			time2 = new Timer(1000 , new time2Listener());
 
 			label2 = new JLabel("Player 1");
-			label2.setForeground(Color.green);
-			label2.setFont(new Font("Serif", Font.PLAIN, 25));
+			label2.setForeground(Color.orange);
+			label2.setFont(new Font("Serif", Font.BOLD, 35));
 			label2.setBounds(520, 400, 10000, 30);
 			this.add(label2);
 
 			label3 = new JLabel("Player 2");
 			label3.setForeground(Color.white);
-			label3.setFont(new Font("Serif", Font.PLAIN, 25));
+			label3.setFont(new Font("Serif", Font.BOLD, 35));
 			label3.setBounds(820, 400, 10000, 30);
 			this.add(label3);
 
@@ -196,13 +199,13 @@ public class GameManager extends JPanel {
 
 			timeLabel = new JLabel(String.valueOf(7*level));
 			timeLabel.setForeground(Color.white);
-			timeLabel.setFont(new Font("Serif", Font.ROMAN_BASELINE, 30));
+			timeLabel.setFont(new Font("Serif", Font.ROMAN_BASELINE, 35));
 			timeLabel.setBounds(420, 400, 10000, 30);
 			this.add(timeLabel);
 
 			time2Label = new JLabel(String.valueOf(7*level));
 			time2Label.setForeground(Color.white);
-			time2Label.setFont(new Font("Serif", Font.ROMAN_BASELINE, 30));
+			time2Label.setFont(new Font("Serif", Font.ROMAN_BASELINE, 35));
 			time2Label.setBounds(940, 400, 10000, 30);
 			this.add(time2Label);
 
@@ -216,7 +219,7 @@ public class GameManager extends JPanel {
 
 			time3Label = new JLabel(String.valueOf(7*level));
 			time3Label.setForeground(Color.white);
-			time3Label.setFont(new Font("Serif", Font.ROMAN_BASELINE, 30));
+			time3Label.setFont(new Font("Serif", Font.BOLD, 30));
 			time3Label.setBounds(1400, 650, 120, 120);
 			this.add(time3Label);
 
@@ -235,12 +238,19 @@ public class GameManager extends JPanel {
 		color[9] = Color.pink;
 		color[10] = new Color(51,124,160);
 		color[11] = Color.orange;
+		
+	
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
-		legend.setBounds(10, 690, 10000, 90);
+		ImageIcon img2;
 		super.paintComponent(g);
+		img2 = new ImageIcon("background.jpg");
+		img2.paintIcon(null, g, 0, 0);
+		
+		legend.setBounds(10, 690, 10000, 200);
+		
 		label.setText("Move Count = " + moveCount[level]);
 		label.setBounds(10, 650, 10000, 30);
 		back.setBounds(20, 500, 100, 30);
@@ -254,10 +264,10 @@ public class GameManager extends JPanel {
 		}
 
 		if(mode == 1) {
-			label2.setBounds(520, 400, 10000, 30);
-			label3.setBounds(820, 400, 10000, 30);
-			timeLabel.setBounds(620, 400, 10000, 30);
-			time2Label.setBounds(940, 400, 10000, 30);
+			label2.setBounds(520, 400, 10000, 40);
+			label3.setBounds(820, 400, 10000, 40);
+			timeLabel.setBounds(660, 405, 10000, 30);
+			time2Label.setBounds(960, 405, 10000, 30);
 			finTour.setBounds(1200, 500, 200, 30);
 
 			if(turn %4 == 0 || turn % 4 == 1)
@@ -269,15 +279,19 @@ public class GameManager extends JPanel {
 			if(player1 && gameOn) {
 				time.start();
 				time2.stop();
-				label2.setForeground(color[4]);
+				label2.setForeground(color[1]);
 				label3.setForeground(Color.white);
+				timeLabel.setForeground(color[1]);
+				time2Label.setForeground(Color.white);
 			}
 
 			else if(gameOn) {
 				time2.start();
 				time.stop();
-				label3.setForeground(color[4]);
+				label3.setForeground(color[1]);
 				label2.setForeground(Color.white);
+				time2Label.setForeground(color[1]);
+				timeLabel.setForeground(Color.white);
 			}
 		}
 
