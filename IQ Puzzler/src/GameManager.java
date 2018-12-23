@@ -154,15 +154,15 @@ public class GameManager extends JPanel {
 
 			time2 = new Timer(1000 , new time2Listener());
 
-			label2 = new JLabel("ANAN");
+			label2 = new JLabel("Player 1");
 			label2.setForeground(Color.green);
-			label2.setFont(new Font("Serif", Font.PLAIN, 30));
-			label2.setBounds(320, 400, 10000, 30);
+			label2.setFont(new Font("Serif", Font.PLAIN, 25));
+			label2.setBounds(520, 400, 10000, 30);
 			this.add(label2);
 
-			label3 = new JLabel("BABAN");
+			label3 = new JLabel("Player 2");
 			label3.setForeground(Color.white);
-			label3.setFont(new Font("Serif", Font.PLAIN, 30));
+			label3.setFont(new Font("Serif", Font.PLAIN, 25));
 			label3.setBounds(820, 400, 10000, 30);
 			this.add(label3);
 
@@ -521,8 +521,8 @@ public class GameManager extends JPanel {
 
 				else if(player1){
 					selectedValue = JOptionPane.showOptionDialog(null,
-							"ANALAR KAZANDI",
-							"ANAN BABANI SÝKTÝ!",
+							"PLAYER 1 HAS WON",
+							"PLAYER 1 HAS WON",
 							JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE,
 							null,
@@ -532,8 +532,8 @@ public class GameManager extends JPanel {
 
 				else {
 					selectedValue = JOptionPane.showOptionDialog(null,
-							"BABALAR KAZANDI",
-							"BABAN ANANI SÝKTÝ!",
+							"PLAYER 2 HAS WON",
+							"PLAYER 2 HAS WON",
 							JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE,
 							null,
@@ -590,7 +590,12 @@ public class GameManager extends JPanel {
 			if(mode == 3)
 				time3.stop();
 			menu.show(l);
-
+			
+			
+			time.stop();
+			time0.stop();
+			time2.stop();
+			time3.stop();
 
 		}	
 
@@ -640,8 +645,8 @@ public class GameManager extends JPanel {
 
 
 				int selectedValue = JOptionPane.showOptionDialog(null,
-						"BABALAR KAZANDI",
-						"BABAN ANANI SÝKTÝ!",
+						"PLAYER 2 HAS WON",
+						"PLAYER 2 HAS WON",
 						JOptionPane.YES_NO_CANCEL_OPTION,
 						JOptionPane.QUESTION_MESSAGE,
 						null,
@@ -685,8 +690,8 @@ public class GameManager extends JPanel {
 
 
 				int selectedValue = JOptionPane.showOptionDialog(null,
-						"ANALAR KAZANDI",
-						"ANAN BABANI SÝKTÝ!",
+						"PLAYER 1 HAS WON",
+						"PLAYER 1 HAS WON",
 						JOptionPane.YES_NO_CANCEL_OPTION,
 						JOptionPane.QUESTION_MESSAGE,
 						null,

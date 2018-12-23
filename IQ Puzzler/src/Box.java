@@ -10,6 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 
+
+/*
+ * 
+ * This is Box class that extends Rectangle
+ * 
+ * 
+ */
 public class Box extends Rectangle {
 	public Box(int x , int y) {
 		setBounds(0, 0, 40, 40);
