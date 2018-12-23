@@ -64,7 +64,7 @@ public class StatisticsPanel extends JPanel {
 			JLabel label1 = new JLabel("SinglePlayer-Casual");
 			JLabel label2 = new JLabel("Total Time Spent                       " + timeSpent+	"                                                   " +  timeSpent2);
 			JLabel label3 = new JLabel("Total Move Number                   " + totalMove+	"                                                   " +  totalMove2);
-			JLabel label4 = new JLabel("Total Play Count                       " + totalPlay+	"                                                    " +  totalPlay2);
+			JLabel label4 = new JLabel("Total Play Count                        " + totalPlay+	"                                                     " +  totalPlay2);
 			JLabel label5 = new JLabel("SinglePlayer-TimeBomb");
 	
 			
