@@ -1,4 +1,13 @@
-
+/*
+* IQ Puzzler Term Project
+* CS319  Section:2
+* This project was developed for Object Oriented Programming Course Term Project by
+* -Arda Türkoğlu
+* -Engin Deniz Kopan
+* -Zafer Çınar
+* -Mehmet Selim Özcan
+* -Mehmet Sanisoğlu
+*/
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,11 +15,10 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JPanel;
 
 public class Grid  {
-
+	//variables
 	private Box [][] boxes;
 	private int locationX;
 	private int locationY;
@@ -18,15 +26,15 @@ public class Grid  {
 	private  Dimension dim = new Dimension(240, 140);
 	private  boolean occupied[][];
 
-
+	//Constructor
 	public Grid() {
-		occupied = new boolean[5][11];
+		occupied = new boolean[5][11]; //creating new 2D array for the grid
 		locationX = 520;
 		locationY = 480;
 		boxes = new Box[5][11];
 		for(int i= 0; i< 5; i++) {
 			for(int j = 0; j< 11;j++) {
-				boxes[i][j] = new Box(locationX , locationY);
+				boxes[i][j] = new Box(locationX , locationY); //adding boxes to each locations
 				locationX += 41;
 				occupied[i][j] = true;
 			}
@@ -35,7 +43,9 @@ public class Grid  {
 		}
 
 	}
-
+	/*
+	 *  
+	 */
 	public Box[] makeOccupied(int [] x , int [] y , int boxCount) {
 
 		int return1 = 0;
