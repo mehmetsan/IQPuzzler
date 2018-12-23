@@ -52,7 +52,7 @@ public class SettingsPanel extends JPanel {
 		sounds.setPaintTicks(true);
 		sounds.setBounds(100, 105, 200, 20);
 		sounds.setSize(300, 90);
-		sounds.setBackground(new Color(8,178 ,227));
+		sounds.setBackground(Color.ORANGE);
 		add(sounds);
 		
 		JLabel label2 = new JLabel("Sound: ");
@@ -60,14 +60,14 @@ public class SettingsPanel extends JPanel {
 		label2.setFont(new Font("Tahoma", Font.BOLD, 25 ));
 		label2.setBounds(20, 100, 100, 25);
 		label2.setForeground(Color.ORANGE);
-		label2.setBackground(new Color(8,178 ,227));
+		label2.setBackground(Color.ORANGE);
 		add(label2);
 		
 	    JRadioButton button1 = new JRadioButton("OFF");
 	    button1.setActionCommand("OFF");
 	    button1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	    button1.setForeground(Color.ORANGE);
-	    button1.setBackground(new Color(8,178 ,227));
+	    button1.setBackground(Color.ORANGE);
 	   /* if(fm.readSettingsFile(0) == "false")
 		    button1.setSelected(true);
 	    else
@@ -89,7 +89,7 @@ public class SettingsPanel extends JPanel {
 	    //button2.setMnemonic(KeyEvent.VK_C);
 	    button2.setActionCommand("ON");
 	    button2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	    button2.setBackground(new Color(8,178 ,227));
+	    button2.setBackground(Color.ORANGE);
 	    button2.setSelected(true);
 	    button2.setForeground(Color.ORANGE);
 	    /*if(fm.readSettingsFile(0) == "true")
