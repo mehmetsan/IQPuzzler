@@ -538,7 +538,7 @@ public class GameManager extends JPanel {
 							JOptionPane.QUESTION_MESSAGE,
 							null,
 							options,
-							options[2]);
+							options[2]);//s
 				}
 
 
